@@ -1,0 +1,2 @@
+[honeypot_server]
+ubuntu_server ansible_host=SERVER_IP_ADDRESS ansible_user=USER

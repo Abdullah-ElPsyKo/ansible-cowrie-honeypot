@@ -1,0 +1,32 @@
+# Deny access for common weak passwords for root
+root:x:!root
+root:x:!1234
+root:x:!admin
+root:x:!password
+root:x:!123456
+
+# Deny access for attempts using regular expressions (e.g., containing 'admin')
+root:x:!/admin/i
+
+# Accept any other passwords for root (makes it look like root has a weak password)
+root:x:*
+
+# Specific user scenario - USER
+# Accept only 'YOUR_PASSWORD' as the password for USER
+USER:x:YOUR_PASSWORD
+
+# Deny common default usernames with any passwords
+admin:x:!
+user:x:!
+test:x:!
+guest:x:!
+mysql:x:!
+
+# Catch-all for any other usernames: accept a specific common password
+*:x:somecommonpassword
+
+# Optionally, you can add a catch-all rule to simulate a system that's not locked down
+# This makes the honeypot interact with a wider range of attacker behaviors
+# Commented out by default - uncomment to activate
+# *:x:*
+
